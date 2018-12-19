@@ -1,20 +1,11 @@
 public class Diamond extends Parallelepiped {
     int sideLength;
-    int smallAngle;
-    int bigAngle;
-
-    Diamond(int sideLength, int smallAngle, int bigAngle) {
-        super(sideLength, smallAngle, bigAngle);
-        this.sideLength = sideLength;
-        this.smallAngle = smallAngle;
-        this.bigAngle = bigAngle;
-    }
 
     Diamond(int sideLength, int angle) {
         super(sideLength, angle);
         this.sideLength = sideLength;
         this.smallAngle = angle;
-        this.bigAngle = angle;
+        this.bigAngle = 180 - angle;
     }
 
     Diamond(int sideLength) {
@@ -26,7 +17,9 @@ public class Diamond extends Parallelepiped {
 
     String getState() {
         String baseStr = "Side length: " + this.sideLength + "; Small angle: " + this.smallAngle + ";";
+        String square = "Square: " + this.getSquare() + ';';
+        String perimeter = "Perimeter: " + this.getPerimeter() + ';';
 
-        return "Instance of Diamond." + " " + baseStr + " Height: " + this.height;
+        return "Instance of Diamond." + " " + baseStr + square + perimeter;
     }
 }
